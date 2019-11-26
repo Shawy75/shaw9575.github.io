@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/shaw9575.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/shaw9575.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/shaw9575.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/shaw9575.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/shaw9575.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/shaw9575.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/shaw9575.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Oracle SQL," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="description: 一些基础的ORACLE SQL的概念  主要Focusing on四个重要的讨论点，When， How， Why， What">
+<meta name="keywords" content="Oracle SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Oracle SQL NOTE">
+<meta property="og:url" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;shaw9575.github.io&#x2F;2019&#x2F;11&#x2F;25&#x2F;Oracle-SQL-NOTE&#x2F;index.html">
+<meta property="og:site_name" content="Broken Shaw">
+<meta property="og:description" content="description: 一些基础的ORACLE SQL的概念  主要Focusing on四个重要的讨论点，When， How， Why， What">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;04_sql_union.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;05_sql_union_all.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;06_sql_minus_12.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;08_sql_intersect.gif">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;WechatIMG64.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;WechatIMG3.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;SP:F.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;function.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;CURSOR.jpeg">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;clu-nonclu.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;20160127144445485.png">
+<meta property="og:updated_time" content="2019-11-26T04:24:20.967Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;assets&#x2F;images&#x2F;04_sql_union.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/shaw9575.github.io/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://shawy75.github.io/shaw9575.github.io/2019/11/25/Oracle-SQL-NOTE/"/>
+
+
+
+
+
+  <title>Oracle SQL NOTE | Broken Shaw</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/shaw9575.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Broken Shaw</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Money on my mind</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/shaw9575.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/shaw9575.github.io/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/shaw9575.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/shaw9575.github.io/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/shaw9575.github.io/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://shawy75.github.io/shaw9575.github.io/shaw9575.github.io/2019/11/25/Oracle-SQL-NOTE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shawy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/shaw9575.github.io/images/WechatIMG105.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Broken Shaw">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Oracle SQL NOTE</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-25T23:19:00-05:00">
+                2019-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/shaw9575.github.io/categories/NOTES/" itemprop="url" rel="index">
+                    <span itemprop="name">NOTES</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>description: 一些基础的ORACLE SQL的概念</p>
+<blockquote>
+<p>主要Focusing on四个重要的讨论点，When， How， Why， What</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="SQL-Basic"><a href="#SQL-Basic" class="headerlink" title="SQL Basic"></a>SQL Basic</h1><h2 id="WHAT-IS-SQL"><a href="#WHAT-IS-SQL" class="headerlink" title="WHAT IS SQL?"></a>WHAT IS SQL?</h2><p>  SQL stands for Structured Query Language.<br>  SQL lets you access and manipulate databases.  </p>
+<h2 id="RDBMS"><a href="#RDBMS" class="headerlink" title="RDBMS"></a>RDBMS</h2><p>  RDBMS stands for Relational Database Management System.<br>  RDBMS is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.<br>  The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.  </p>
+<h2 id="Non-relational-Databases-vs-Relational-Databases"><a href="#Non-relational-Databases-vs-Relational-Databases" class="headerlink" title="Non-relational Databases vs. Relational Databases"></a>Non-relational Databases vs. Relational Databases</h2><h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><ul>
+<li>DQL / DRL (Data Query Language) :<br>SELECT, FROM, WHERE, ORDER, GROUP, HAVING</li>
+<li>DDL (Data Definition Language) :<br>CREATE, ALTER, DROP, TRUNCATE, RENAME</li>
+<li>DML (Data Manipulation Language) :<br>INSERT, UPDATE, DELETE</li>
+<li>DCL (Data Control Language) :<br>GRANT, REVOKE</li>
+<li>TCL (Transaction Control Language):<br>COMMIT, ROLLBACK, SAVEPOINT</li>
+</ul>
+<h1 id="SQL-Common-Key-Words"><a href="#SQL-Common-Key-Words" class="headerlink" title="SQL Common Key Words"></a>SQL Common Key Words</h1><h2 id="Constraint"><a href="#Constraint" class="headerlink" title="Constraint"></a>Constraint</h2><ul>
+<li><p>NOT NULL  </p>
+<p>NOT NULL 约束强制列不接受 NULL 值。<br>NOT NULL 约束强制字段始终包含值。这意味着，如果不向字段添加值，就无法插入新记录或者更新记录。<br>The NOT NULL constraint enforces a column to NOT accept NULL values.<br>This enforces a field to always contain a value, which means that you cannot insert a new record, or update a record without adding a value to this field.  </p>
+</li>
+<li><p>UNIQUE  </p>
+<p>UNIQUE 约束唯一标识数据库表中的每条记录。<br>UNIQUE 和 PRIMARY KEY 约束均为列或列集合提供了唯一性的保证。<br>PRIMARY KEY 拥有自动定义的 UNIQUE 约束。<br>请注意，每个表可以有多个 UNIQUE 约束，但是每个表只能有一个 PRIMARY KEY 约束。<br>The UNIQUE constraint ensures that all values in a column are different.<br>Both the UNIQUE and PRIMARY KEY constraints provide a guarantee for uniqueness for a column or set of columns.<br>A PRIMARY KEY constraint automatically has a UNIQUE constraint.<br>However, you can have many UNIQUE constraints per table, but only one PRIMARY KEY constraint per table.  </p>
+</li>
+<li><p>PRIMARY KEY  </p>
+<p>PRIMARY KEY 约束唯一标识数据库表中的每条记录。主键建立时自带聚集索引。<br>主键必须包含唯一的值。主键列不能包含 NULL 值。<br>每个表都应该有一个主键，并且每个表只能有一个主键。<br>The PRIMARY KEY constraint uniquely identifies each record in a table. The PRIMARY KEY will automatically have a cluster index.<br>Primary keys must contain UNIQUE values, and cannot contain NULL values.<br>A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns (fields).  </p>
+</li>
+<li><p>FOREIGH KEY  </p>
+<p>一个表中的 FOREIGN KEY 指向另一个表中的 PRIMARY KEY。<br>包含外键的表称为子表，包含候选键（Candidate Key）的表称为引用表或父表。<br>FOREIGN KEY 约束用于预防破坏表之间连接的动作。<br>FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。<br>A FOREIGN KEY is a key used to link two tables together. A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.<br>The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.<br>The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.<br>The FOREIGN KEY constraint also prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.  </p>
+</li>
+<li><p>CHECK  </p>
+<p>CHECK 约束用于限制列中的值的范围。<br>如果对单个列定义 CHECK 约束，那么该列只允许特定的值。<br>如果对一个表定义 CHECK 约束，那么此约束会在特定的列中对值进行限制。<br>The CHECK constraint is used to limit the value range that can be placed in a column.<br>If you define a CHECK constraint on a single column it allows only certain values for this column.<br>If you define a CHECK constraint on a table it can limit the values in certain columns based on values in other columns in the row.  </p>
+</li>
+<li><p>DEFAULT  </p>
+<p>DEFAULT 约束用于向列中插入默认值。<br>如果没有规定其他的值，那么会将默认值添加到所有的新记录。<br>The DEFAULT constraint is used to provide a default value for a column.<br>The default value will be added to all new records IF no other value is specified.  </p>
+</li>
+</ul>
+<h2 id="VARCHAR-VACHAR2-CHAR"><a href="#VARCHAR-VACHAR2-CHAR" class="headerlink" title="VARCHAR, VACHAR2, CHAR"></a>VARCHAR, VACHAR2, CHAR</h2><ul>
+<li><p>CHAR  </p>
+<p>The CHAR datatype stores fixed-length character strings. When you create a table with a CHAR column, you must specify a string length (in bytes or characters) between 1 and 2000 bytes for the CHAR column width. The default is 1 byte. Oracle then guarantees that:  </p>
+<ol>
+<li>When you insert or update a row in the table, the value for the CHAR column has the fixed length.  </li>
+<li>If you give a shorter value, then the value is blank-padded to the fixed length.  </li>
+<li>If a value is too large, Oracle Database returns an error.   </li>
+</ol>
+</li>
+<li><p>VARCHAR, VARCHAR2</p>
+<p>The VARCHAR2 datatype stores variable-length character strings. When you create a table with a VARCHAR2 column, you specify a maximum string length (in bytes or characters) between 1 and 4000 bytes for the VARCHAR2 column. For each row, Oracle Database stores each value in the column as a variable-length field unless a value exceeds the column’s maximum length, in which case Oracle Database returns an error.  </p>
+<ol>
+<li>Varchar can identify NULL and empty string separately.    Varchar2 cannot identify both separately. Both considered as same for this.   </li>
+<li>Varchar is ANSI Sql standard. Varchar2 is Oracle standard.   </li>
+</ol>
+</li>
+</ul>
+<h2 id="AGGREGATION-FUNCTIONS-MIN-MAX-AVG-SUM-COUNT"><a href="#AGGREGATION-FUNCTIONS-MIN-MAX-AVG-SUM-COUNT" class="headerlink" title="AGGREGATION FUNCTIONS (MIN / MAX / AVG / SUM / COUNT)"></a>AGGREGATION FUNCTIONS (MIN / MAX / AVG / SUM / COUNT)</h2><p>  Aggregate functions return a single result row based on groups of rows, rather than on single rows. Aggregate functions can appear in select lists and in <code>ORDER BY</code> and <code>HAVING</code> clauses. They are commonly used with the <code>GROUP BY</code> clause in a <code>SELECT</code> statement, where Oracle Database divides the rows of a queried table or view into groups. In a query containing a <code>GROUP BY</code> clause, the elements of the select list can be aggregate functions, <code>GROUP BY</code> expressions, constants, or expressions involving one of these. Oracle applies the aggregate functions to each group of rows and returns a single result row for each group.  </p>
+<p>  Many (but not all) aggregate functions that take a single argument accept these clauses:  </p>
+<ol>
+<li><p>The syntax diagrams for aggregate functions in this chapter use the keyword <code>DISTINCT</code> for simplicity.  </p>
+</li>
+<li><p>ALL causes an aggregate function to consider all values, including all duplicates.  </p>
+<p>For example, the <code>DISTINCT</code> average of 1, 1, 1, and 3 is 2. The <code>ALL</code> average is 1.5. If you specify neither, then the default is <code>ALL</code>.</p>
+</li>
+</ol>
+<h2 id="DROP-TRUNCATE-DELETE"><a href="#DROP-TRUNCATE-DELETE" class="headerlink" title="DROP / TRUNCATE / DELETE"></a>DROP / TRUNCATE / DELETE</h2><ul>
+<li><p>DROP  </p>
+<p>DROP is used to delete a whole database or just a table.The DROP statement destroys the objects like an existing database, table, index, or view.  </p>
+<ul>
+<li>The DROP command removes a table from the database.</li>
+<li>All the tables’ rows, indexes and privileges will also be removed.</li>
+<li>No DML triggers will be fired.</li>
+<li>The operation cannot be rolled back.</li>
+<li>DROP and TRUNCATE are DDL commands, whereas DELETE is a DML command.</li>
+<li>DELETE operations can be rolled back (undone), while DROP and TRUNCATE operations cannot be rolled back.  </li>
+</ul>
+</li>
+<li><p>TRUNCATE  </p>
+<p>TRUNCATE SQL query removes all rows from a table, without logging the individual row deletions.   </p>
+<ul>
+<li>TRUNCATE is executed using a table lock and whole table is locked for remove all records.</li>
+<li>We cannot use WHERE clause with TRUNCATE.</li>
+<li>TRUNCATE removes all rows from a table.</li>
+<li>Minimal logging in transaction log, so it is faster performance wise.</li>
+<li>TRUNCATE TABLE removes the data by deallocating the data pages used to store the table data and records only the page deallocations in the transaction log.</li>
+<li>TRUNCATE TABLE通过取消分配用于存储表数据的数据页来删除数据，并仅在事务日志中记录页面的解除分配。</li>
+<li>Identify column is reset to its seed value if table contains any identity column.</li>
+<li>Truncate uses less transaction space than the Delete statement.</li>
+<li>Truncate cannot be used with indexed views.</li>
+<li>TRUNCATE is faster than DELETE.  </li>
+</ul>
+</li>
+<li><p>DELETE  </p>
+<p>To execute a DELETE queue, delete permissions are required on the target table. If you need to use a WHERE clause in a DELETE, select permissions are required as well.</p>
+<ul>
+<li>DELETE is a DML command.</li>
+<li>DELETE is executed using a row lock, each row in the table is locked for deletion.</li>
+<li>We can use where clause with DELETE to filter &amp; delete specific records.</li>
+<li>The DELETE command is used to remove rows from a table based on WHERE condition.</li>
+<li>It maintain the log, so it slower than TRUNCATE.</li>
+<li>The DELETE statement removes rows one at a time and records an entry in the transaction log for each deleted row.</li>
+<li>Identity of column keep DELETE retains the identity.</li>
+<li>To use Delete you need DELETE permission on the table.</li>
+<li>Delete uses the more transaction space than Truncate statement.</li>
+<li>Delete can be used with indexed views.</li>
+</ul>
+</li>
+</ul>
+<h2 id="UNION-UNIONALL-MINUS-INTERSECT"><a href="#UNION-UNIONALL-MINUS-INTERSECT" class="headerlink" title="UNION / UNIONALL / MINUS / INTERSECT"></a>UNION / UNIONALL / MINUS / INTERSECT</h2><ul>
+<li><p>UNION / UNIONALL  </p>
+<ol>
+<li>UNION<br>The UNION command combines the result set of two or more <code>SELECT</code> statements (only distinct values).<br><img src="/assets/images/04_sql_union.gif" alt="Union.gif"></li>
+<li>UNIONALL<br>The UNION ALL command combines the result set of two or more <code>SELECT</code> statements (allows duplicate values).<br><img src="/assets/images/05_sql_union_all.gif" alt="Unionall.gif"></li>
+</ol>
+</li>
+<li><p>MINUS / INTERSECT  </p>
+<ol>
+<li>MINUS<br>MINUS returns the difference between the first and second <code>SELECT</code> statement. It is the one where we need to be careful which statement will be put first, cause we will get only those results that are in the first <code>SELECT</code> statement and not in the second.<br><img src="/assets/images/06_sql_minus_12.gif" alt="Minus.gif"></li>
+<li>INTERSECT<br>INTERSECT is opposite from MINUS as it returns us the results that are both to be found in first and second <code>SELECT</code> statement.<br><img src="/assets/images/08_sql_intersect.gif" alt="Intersect.gif"></li>
+</ol>
+</li>
+</ul>
+<h2 id="VIEW-amp-TEMPORARY-TABLE"><a href="#VIEW-amp-TEMPORARY-TABLE" class="headerlink" title="VIEW &amp; TEMPORARY TABLE"></a>VIEW &amp; TEMPORARY TABLE</h2><ul>
+<li><p>VIEW<br>Views in SQL are kind of virtual tables. A view also has rows and columns as they are in a real table in the database. We can create a view by selecting fields from one or more tables present in the database. A View can either have all the rows of a table or specific rows based on certain condition.  </p>
+<p>What’s the advantages?  </p>
+<ol>
+<li>Improves the performance of data retriving.  </li>
+<li>Limit the degrees of exposure of the underlying tables to the outer world.  </li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>Temporary Table<br>In Oracle Database, global temporary tables are permanent objects whose data are stored on disk and automatically deleted at the end of a session or transaction. In addition, global temporary tables are visible to all sessions currently connected to the database.<br><img src="/assets/images/WechatIMG64.jpeg" alt="Global/Private.jpeg"></p>
+</li>
+<li><p>VIEW vs. TEMPORARY TABLE<br>Modifications on view could change the original table data. However, the modification on temp will keep the original table intacted. And the modification on oringal table after create the view will have effects on the view. On the other hands, temp table would not be affected.  </p>
+</li>
+</ul>
+<h1 id="Transaction"><a href="#Transaction" class="headerlink" title="Transaction"></a>Transaction</h1><h2 id="What’s-transaction"><a href="#What’s-transaction" class="headerlink" title="What’s transaction?"></a>What’s transaction?</h2><p>  A transaction is a sequence of operations performed (using one or more SQL statements) on a database as a single logical unit of work.  </p>
+<h2 id="Transaction-Principles"><a href="#Transaction-Principles" class="headerlink" title="Transaction Principles"></a>Transaction Principles</h2><ul>
+<li><p>Atomic<br>A transaction is a logical unit of work which must be either completed with all of its data modifications, or none of them is performed.<br>一个事务中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚到事务开始前的状态，就像这个事务从来没有执行过一样。  </p>
+</li>
+<li><p>Consistent<br>At the end of the transaction, all data must be left in a consistent state.<br>在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。  </p>
+</li>
+<li><p>Isolate<br>Modifications of data performed by a transaction must be independent of another transaction. Unless this happens, the outcome of a transaction may be erroneous.<br>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）。  </p>
+</li>
+<li><p>Durable<br>When the transaction is completed, effects of the modifications performed by the transaction must be permanent in the system.<br>事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。  </p>
+</li>
+</ul>
+<h2 id="Transaction-Statements"><a href="#Transaction-Statements" class="headerlink" title="Transaction Statements"></a>Transaction Statements</h2><ul>
+<li><code>COMMIT</code>：提交更改；  </li>
+<li><code>ROLLBACK</code>：回滚更改；  </li>
+<li><code>SAVEPOINT</code>：在事务内部创建一系列可以 ROLLBACK 的还原点；  </li>
+<li><code>SET TRANSACTION</code>：命名事务, 用来设置事务隔离级别。  </li>
+</ul>
+<h2 id="Isolation-Level"><a href="#Isolation-Level" class="headerlink" title="Isolation Level"></a>Isolation Level</h2><p><img src="/assets/images/WechatIMG3.jpeg" alt="Iso_level"></p>
+<ul>
+<li>未提交读(Read Uncommitted)：允许脏读，也就是可能读取到其他会话中未提交事务修改的数据  </li>
+<li>提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别 (不重复读)  </li>
+<li>可重复读(Repeated Read)：可重复读。在同一个事务内的查询都是事务开始时刻一致的，InnoDB默认级别。在SQL标准中，该隔离级别消除了不可重复读，但是还存在幻象读  </li>
+<li>串行读(Serializable)：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞  </li>
+</ul>
+<h2 id="Concurrency-Anomalies"><a href="#Concurrency-Anomalies" class="headerlink" title="Concurrency Anomalies"></a>Concurrency Anomalies</h2><ul>
+<li><p>Dirty Read<br>A dirty read occurs if one transaction reads data that has been modified by another transaction.<br>就是指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。  </p>
+</li>
+<li><p>Non-Repeatable Read<br>A non-repeatable read occurs when a object is read twice within a transaction; and between the reads, it is modified by another transaction, therefore, the second read returns different values as compared to the first.<br>是指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读。  </p>
+</li>
+<li><p>Phantom Read<br>Phantom reads are of a totally different nature than the anomalies introduced previously.<br>第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。  </p>
+</li>
+</ul>
+<h1 id="PL-SQL"><a href="#PL-SQL" class="headerlink" title="PL/SQL"></a>PL/SQL</h1><h2 id="Stored-Procedure-Function"><a href="#Stored-Procedure-Function" class="headerlink" title="Stored Procedure / Function"></a>Stored Procedure / Function</h2><ul>
+<li><p>Stored Procedure vs. Function<br><img src="/assets/images/SP:F.jpg" alt="SPF"><br><img src="/assets/images/function.jpeg" alt="func"></p>
+<p><strong>Summary</strong>   </p>
+<p>  1.一般来说，存储过程实现的功能要复杂一点，而函数的实现的功能针对性比较强。<br>  2.对于存储过程来说可以返回参数，而函数只能返回值或者表对象。<br>  3.存储过程一般是作为一个独立的部分来执行（EXEC执行），而函数可以作为查询语句的一个部分来调用（SELECT调用），由于函数可以返回一个表对象，因此它可以在查询语句中位于FROM关键字的后面。<br>  4.当存储过程和函数被执行的时候，SQL Manager会到procedure cache中去取相应的查询语句，如果在procedure cache里没有相应的查询语句，SQL Manager就会对存储过程和函数进行编译。 Procedure cache中保存的是执行计划 (execution plan) ，当编译好之后就执行procedure cache中的execution plan，之后SQL SERVER会根据每个execution plan的实际情况来考虑是否要在cache中保存这个plan，评判的标准一个是这个execution plan可能被使用的频率；其次是生成这个plan的代价，也就是编译的耗时。保存在cache中的plan在下次执行时就不用再编译了。  </p>
+</li>
+<li><p>Stored Procedure  </p>
+<p><strong>存储过程(Stored Procedure)</strong><br>  是一组为了完成特定功能的SQL语句集，经编译后存储在数据库中。用户通过指定存储过程的名字并给出参数（如果该存储过程带有参数）来执行它。<br>存储过程是数据库中的一个重要对象，任何一个设计良好的数据库应用程序都应该用到存储过程。<br>存储过程是由流控制和SQL 语句书写的过程，这个过程经编译和优化后存储在数据库服务器中，应用程序使用时只要调用即可。<br>在Oracle 中，若干个有联系的过程可以组合在一起构成程序包。  </p>
+<p><strong>Advantage:</strong>  </p>
+<ol>
+<li>存储过程只在创造时进行编译，以后每次执行存储过程都不需再重新编译，而一般SQL语句每执行一次就编译一次,所以使用存储过程可提高数据库执行速度。  </li>
+<li>当对数据库进行复杂操作时(如对多个表进行Update、Insert、Query、Delete时），可将此复杂操作用存储过程封装起来与数据库提供的事务处理结合一起使用。  </li>
+<li>存储过程可以重复使用,可减少数据库开发人员的工作量。减少网络交互的成本。  </li>
+<li>安全性高,可设定只有某用户才具有对指定存储过程的使用权。  </li>
+</ol>
+<p><strong>Disadvantage</strong></p>
+<ol>
+<li>不可移植性，每种数据库的内部编程语法都不太相同，当你的系统需要兼容多种数据库时，最好不要用存储过程。  </li>
+<li>学习成本高，DBA一般都擅长写存储过程，但并不是每个程序员都能写好存储过程，除非你的团队有较多的开发人员熟悉写存储过程，否则后期系统维护会产生问题。  </li>
+<li>业务逻辑多处存在，采用存储过程后也就意味着你的系统有一些业务逻辑不是在应用程序里处理，这种架构会增加一些系统维护和调试成本。  </li>
+<li>存储过程和常用应用程序语言不一样，它支持的函数及语法有可能不能满足需求，有些逻辑就只能通过应用程序处理。  </li>
+<li>如果存储过程中有复杂运算的话，会增加一些数据库服务端的处理成本，对于集中式数据库可能会导致系统可扩展性问题。  </li>
+<li>为了提高性能，数据库会把存储过程代码编译成中间运行代码(类似于Java的class文件)，所以更像静态语言。当存储过程引用的对像(表、视图等等)结构改变后，存储过程需要重新编译才能生效，在24*7高并发应用场景，一般都是在线变更结构的，所以在变更的瞬间要同时编译存储过程，这可能会导致数据库瞬间压力上升引起故障。  </li>
+</ol>
+</li>
+<li><p>Function  </p>
+<p>只能返回一个变量的限制。而存储过程可以返回多个。而函数是可以嵌入在sql中使用的,可以在select中调用，而存储过程不行。执行的本质都一样。<br>函数限制比较多，比如不能用临时表，只能用表变量还有一些函数都不可用等等。而存储过程的限制相对就比较少。  </p>
+</li>
+</ul>
+<h2 id="Trigger"><a href="#Trigger" class="headerlink" title="Trigger"></a>Trigger</h2><ul>
+<li><p>What is a Trigger?  </p>
+<p>触发器是一种特殊的存储过程，<strong>触发器一般由事件触发并且不能接受参数</strong>，存储器由语句块去调用<br>A trigger is a named PL/SQL block stored in the Oracle Database and executed automatically when a triggering event takes place. The event can be any of the following:  </p>
+<ol>
+<li>A data manipulation language  (DML) statement executed against a table e.g., <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>. For example, if you define a trigger that fires before an <code>INSERT</code> statement on the <code>customers</code> table, the trigger will fire once before a new row is inserted into the <code>customers</code> table.  </li>
+<li>A data definition language (DDL) statement executes e.g., <code>CREATE</code> or <code>ALTER</code> statement. These triggers are often used for auditing purposes to record changes of the schema.  </li>
+<li>A system event such as startup or shutdown of the Oracle Database.  </li>
+<li>A user event such as login or logout.</li>
+</ol>
+<p>The act of executing a trigger is also known as firing a trigger. We say that the trigger is fired.  </p>
+</li>
+</ul>
+<h2 id="Cursor"><a href="#Cursor" class="headerlink" title="Cursor"></a>Cursor</h2><ul>
+<li><p>What is a Cursor?  </p>
+<p>在PL/SQL块中执行<code>SELECT</code>、<code>INSERT</code>、<code>DELETE</code>和<code>UPDATE</code>语句时，ORACLE会在内存中为其分配上下文区（Context Area），即缓冲区。游标是指向该区的一个指针，或是命名一个工作区（Work Area），或是一种结构化数据类型。它为应用等量齐观提供了一种对具有多行数据查询结果集中的每一行数据分别进行单独处理的方法，是设计嵌入式SQL语句的应用程序的常用编程方式。<br><strong>A cursor is a pointer that points to a result of a query.</strong> PL/SQL has two types of cursors: <strong>implicit cursors</strong> and <strong>explicit cursors</strong>.<br><img src="/assets/images/CURSOR.jpeg" alt="cursor"></p>
+<ul>
+<li><p>Implicit cursors  </p>
+<p>Whenever Oracle executes an SQL statement such as <code>SELECT INTO</code>, <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code>, it automatically creates an implicit cursor.  </p>
+</li>
+<li><p>Explicit cursors  </p>
+<p>An explicit cursor is an <code>SELECT</code> statement declared explicitly in the declaration section of the current block or a package specification. For an explicit cursor, you have the control over its execution cycle from <code>OPEN</code>, <code>FETCH</code>, and <code>CLOSE</code>.  </p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h1><h2 id="What-is-index"><a href="#What-is-index" class="headerlink" title="What is index?"></a>What is index?</h2><p>  Indexes are <strong>special lookup tables</strong> that the database search engine can use to <strong>speed up data retrieval</strong>.  </p>
+<p>  An index helps to speed up <code>SELECT</code> queries and <code>WHERE</code> clauses, but it slows down data input, with the <code>UPDATE</code> and the <code>INSERT</code> statements. Indexes can be created or dropped with no effect on the data.  </p>
+<p>  The basic syntax of a <code>CREATE INDEX</code> is as follows.<br>  <code>CREATE INDEX index_name ON table_name;</code>  </p>
+<h2 id="Cluster-Index"><a href="#Cluster-Index" class="headerlink" title="Cluster Index"></a>Cluster Index</h2><p>  Cluster index is a type of index which sorts the data rows in the table on their key values. In the Database, there is only one clustered index per table.  </p>
+<p>  A clustered index defines the order in which data is stored in the table which can be sorted in only one way. So, there can be an only a single clustered index for every table. In an RDBMS, usually, the primary key allows you to create a clustered index based on that specific column.  </p>
+<ul>
+<li><p>Characteristic of Clustered Index  </p>
+<ol>
+<li>Default and sorted data storage  </li>
+<li>Use just one or more than one columns for an index  </li>
+<li>Helps you to store Data and index together  </li>
+<li>Fragmentation  </li>
+<li>Operations  </li>
+<li>Clustered index scan and index seek  </li>
+<li>Key Lookup  </li>
+</ol>
+</li>
+<li><p>Advantages of Clustered Index  </p>
+<ol>
+<li>Clustered indexes are an ideal option for range or group by with max, min, count type queries.  </li>
+<li>In this type of index, a search can go straight to a specific point in data so that you can keep reading sequentially from there.  </li>
+<li>Clustered index method uses location mechanism to locate index entry at the start of a range.  </li>
+<li>It is an effective method for range searches when a range of search key values is requested.  </li>
+<li>Helps you to minimize page transfers and maximize the cache hits.  </li>
+</ol>
+</li>
+<li><p>Disadvantages of Clustered Index  </p>
+<ol>
+<li>Lots of inserts in non-sequential order.  </li>
+<li>A clustered index creates lots of constant page splits, which includes data page as well as index pages.  </li>
+<li>Extra work for SQL for inserts, updates, and deletes.  </li>
+<li>A clustered index takes longer time to update records when the fields in the clustered index are changed.  </li>
+<li>The leaf nodes mostly contain data pages in the clustered index.  </li>
+</ol>
+</li>
+</ul>
+<h2 id="Non-Cluster-Index"><a href="#Non-Cluster-Index" class="headerlink" title="Non-Cluster Index"></a>Non-Cluster Index</h2><p>  A Non-clustered index stores the data at one location and indices at another location. The index contains pointers to the location of that data. A single table can have many non-clustered indexes as an index in the non-clustered index is stored in different places.  </p>
+<p>  For example, a book can have more than one index, one at the beginning which displays the contents of a book unit wise while the second index shows the index of terms in alphabetical order.  </p>
+<p>  A non-clustering index is defined in the non-ordering field of the table. This type of indexing method helps you to improve the performance of queries that use keys which are not assigned as a primary key. A non-clustered index allows you to add a unique key for a table.  </p>
+<ul>
+<li><p>Characteristics of Non-clustered Indexes  </p>
+<ol>
+<li>Store key values only  </li>
+<li>Pointers to Heap/Clustered Index rows  </li>
+<li>Allows Secondary data access  </li>
+<li>Bridge to the data  </li>
+<li>Operations of Index Scan and Index Seek  </li>
+<li>You can create a nonclustered index for a table or view  </li>
+<li>Every index row in the nonclustered index stores the nonclustered key value and a row locator  </li>
+</ol>
+</li>
+<li><p>Advantages of Non-clustered index  </p>
+<ol>
+<li>A non-clustering index helps you to retrieves data quickly from the database table.  </li>
+<li>Helps you to avoid the overhead cost associated with the clustered index.  </li>
+<li>A table may have multiple non-clustered indexes in RDBMS. So, it can be used to create more than one index.  </li>
+</ol>
+</li>
+<li><p>Disadvantages of Non-clustered index  </p>
+<ol>
+<li>A non-clustered index helps you to stores data in a logical order but does not allow to sort data rows physically.  </li>
+<li>Lookup process on non-clustered index becomes costly.  </li>
+<li>Every time the clustering key is updated, a corresponding update is required on the non-clustered index as it stores the clustering key.  </li>
+</ol>
+</li>
+</ul>
+<h2 id="Cluster-vs-Non-Cluster-Index"><a href="#Cluster-vs-Non-Cluster-Index" class="headerlink" title="Cluster vs. Non-Cluster Index"></a>Cluster vs. Non-Cluster Index</h2><p><img src="/assets/images/clu-nonclu.jpg" alt="clunonclu"><br><img src="/assets/images/20160127144445485.png" alt="diff"></p>
+<p>  聚集索引：可以帮助把很大的范围，迅速减小范围。但是查找该记录，就要从这个小范围中Scan了。<br>  非聚集索引：把一个很大的范围，转换成一个小的地图。你需要在这个小地图中找你要寻找的信息的位置。然后通过这个位置，再去找你所需要的记录。  </p>
+<p>  聚集索引和非聚集索引的根本区别是<strong>表记录的排列顺序和与索引的排列顺序是否一致</strong>。  </p>
+<p>  聚集索引表记录的排列顺序与索引的排列顺序一致。  </p>
+<p>  优点是查询速度快，因为一旦具有第一个索引值的纪录被找到，具有连续索引值的记录也一定物理的紧跟其后。 </p>
+<p>  缺点是对表进行修改速度较慢，这是为了保持表中的记录的物理顺序与索引的顺序一致，而把记录插入到数据页的相应位置，必须在数据页中进行数据重排， 降低了执行速度。  </p>
+<p>  建议使用聚集索引的场合为：  </p>
+<ol>
+<li><p>此列包含有限数目的不同值；  </p>
+</li>
+<li><p>查询的结果返回一个区间的值；  </p>
+</li>
+<li><p>查询的结果返回某值相同的大量结果集。  </p>
+<p>非聚集索引指定了表中记录的逻辑顺序，但记录的物理顺序和索引的顺序不一致，聚集索引和非聚集索引都采用了B+树的结构，但非聚集索引的叶子层并不与实际的数据页相重叠，而采用叶子层包含一个指向表中的记录在数据页中的指针的方式。  </p>
+<p>非聚集索引比聚集索引层次多，添加记录不会引起数据顺序的重组。  </p>
+<p>建议使用非聚集索引的场合为：</p>
+</li>
+<li><p>此列包含了大量数目不同的值；</p>
+</li>
+<li><p>查询的结束返回的是少量的结果集；</p>
+</li>
+<li><p>order by 子句中使用了该列。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/shaw9575.github.io/tags/Oracle-SQL/" rel="tag"># Oracle SQL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/shaw9575.github.io/2019/11/25/%E5%85%B3%E4%BA%8E%E7%94%B5%E5%BD%B1/" rel="next" title="关于电影">
+                <i class="fa fa-chevron-left"></i> 关于电影
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/shaw9575.github.io/images/WechatIMG105.jpeg"
+                alt="Shawy" />
+            
+              <p class="site-author-name" itemprop="name">Shawy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/shaw9575.github.io/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL-Basic"><span class="nav-number">1.</span> <span class="nav-text">SQL Basic</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WHAT-IS-SQL"><span class="nav-number">1.1.</span> <span class="nav-text">WHAT IS SQL?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RDBMS"><span class="nav-number">1.2.</span> <span class="nav-text">RDBMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-relational-Databases-vs-Relational-Databases"><span class="nav-number">1.3.</span> <span class="nav-text">Non-relational Databases vs. Relational Databases</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL"><span class="nav-number">1.4.</span> <span class="nav-text">SQL</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL-Common-Key-Words"><span class="nav-number">2.</span> <span class="nav-text">SQL Common Key Words</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constraint"><span class="nav-number">2.1.</span> <span class="nav-text">Constraint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VARCHAR-VACHAR2-CHAR"><span class="nav-number">2.2.</span> <span class="nav-text">VARCHAR, VACHAR2, CHAR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AGGREGATION-FUNCTIONS-MIN-MAX-AVG-SUM-COUNT"><span class="nav-number">2.3.</span> <span class="nav-text">AGGREGATION FUNCTIONS (MIN / MAX / AVG / SUM / COUNT)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DROP-TRUNCATE-DELETE"><span class="nav-number">2.4.</span> <span class="nav-text">DROP / TRUNCATE / DELETE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UNION-UNIONALL-MINUS-INTERSECT"><span class="nav-number">2.5.</span> <span class="nav-text">UNION / UNIONALL / MINUS / INTERSECT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VIEW-amp-TEMPORARY-TABLE"><span class="nav-number">2.6.</span> <span class="nav-text">VIEW &amp; TEMPORARY TABLE</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Transaction"><span class="nav-number">3.</span> <span class="nav-text">Transaction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What’s-transaction"><span class="nav-number">3.1.</span> <span class="nav-text">What’s transaction?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Principles"><span class="nav-number">3.2.</span> <span class="nav-text">Transaction Principles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transaction-Statements"><span class="nav-number">3.3.</span> <span class="nav-text">Transaction Statements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Isolation-Level"><span class="nav-number">3.4.</span> <span class="nav-text">Isolation Level</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concurrency-Anomalies"><span class="nav-number">3.5.</span> <span class="nav-text">Concurrency Anomalies</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PL-SQL"><span class="nav-number">4.</span> <span class="nav-text">PL/SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stored-Procedure-Function"><span class="nav-number">4.1.</span> <span class="nav-text">Stored Procedure / Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trigger"><span class="nav-number">4.2.</span> <span class="nav-text">Trigger</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cursor"><span class="nav-number">4.3.</span> <span class="nav-text">Cursor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Index"><span class="nav-number">5.</span> <span class="nav-text">Index</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-is-index"><span class="nav-number">5.1.</span> <span class="nav-text">What is index?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cluster-Index"><span class="nav-number">5.2.</span> <span class="nav-text">Cluster Index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Non-Cluster-Index"><span class="nav-number">5.3.</span> <span class="nav-text">Non-Cluster Index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cluster-vs-Non-Cluster-Index"><span class="nav-number">5.4.</span> <span class="nav-text">Cluster vs. Non-Cluster Index</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Shawy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/shaw9575.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/shaw9575.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/shaw9575.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/shaw9575.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/shaw9575.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/shaw9575.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/shaw9575.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/shaw9575.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/shaw9575.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/shaw9575.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/shaw9575.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
