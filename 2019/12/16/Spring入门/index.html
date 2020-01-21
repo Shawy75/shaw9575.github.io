@@ -88,7 +88,7 @@
 <meta property="og:description" content="快速Spring入门笔记">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;shaw9575.github.io&#x2F;2019&#x2F;12&#x2F;16&#x2F;Spring%E5%85%A5%E9%97%A8&#x2F;spring-overview.png">
-<meta property="og:updated_time" content="2019-12-17T19:38:08.911Z">
+<meta property="og:updated_time" content="2019-12-28T19:25:13.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;shawy75.github.io&#x2F;shaw9575.github.io&#x2F;2019&#x2F;12&#x2F;16&#x2F;Spring%E5%85%A5%E9%97%A8&#x2F;spring-overview.png">
 
@@ -376,7 +376,7 @@
 <h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><blockquote>
 <p>IOC - Inversion of Control 控制反转</p>
 </blockquote>
-<p>以前对象是由程序本身来创建，使用Spring后，程序变为被动接收Spring创建好的对象。</p>
+<p>以前对象是由程序本身来创建，使用Spring后，程序变为被动接收Spring创建好的对象。<br>IOC实现： IOC容器。</p>
 <h2 id="HelloSpring"><a href="#HelloSpring" class="headerlink" title="HelloSpring"></a>HelloSpring</h2><p>Hello.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello, "</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>beans.xml</p>
@@ -421,6 +421,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/shaw9575.github.io/2020/01/17/Preparation/" rel="prev" title="Preparation">
+                Preparation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -501,7 +505,7 @@
               
                 <a href="/shaw9575.github.io/archives/%7C%7Carchive">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -523,7 +527,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/shaw9575.github.io/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -598,7 +602,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
